@@ -9,4 +9,5 @@ export type WordType = {
   startTimestamp?: number;
   endTimestamp?: number;
   duration?: number;
+  correct?: boolean;
 };

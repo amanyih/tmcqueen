@@ -1,3 +1,4 @@
+"use client";
 import { ControlPanelOptionType, ModeType, SubModeType } from "@/types";
 import { Bold } from "lucide-react";
 import { ControlPanelOption } from "./control-panel-option";
@@ -77,60 +78,72 @@ export default function ControlPanel() {
     },
   ];
 
+  const { isTyping } = usePracticeStore();
+
   return (
     <div
-      className="inline-flex h-14 items-center space-x-4 text-sm px-4 py-2 border-2 border-black dark:border-white
-    bg-white dark:bg-black rounded-full shadow-lg dark:shadow-none mx-auto"
+      className={`inline-flex h-14 items-center space-x-4 text-sm px-4 py-2 border-2 border-black dark:border-white bg-white dark:bg-black rounded-full shadow-lg dark:shadow-none mx-auto ${
+        isTyping ? "opacity-0" : "opacity-100"
+      }`}
     >
-      <ControlPanelOption
-        type="multiple"
-        items={extraCharacters}
-        onSelect={(values: string[]) => {
-          console.log("values", values);
-          if (values.includes("numbers")) {
-            setNumbers(true);
-          } else {
-            setNumbers(false);
-          }
-          if (values.includes("punctuation")) {
-            setPunctuation(true);
-          } else {
-            setPunctuation(false);
-          }
-        }}
-        value={[
-          punctuation ? "punctuation" : "",
-          numbers ? "numbers" : "",
-        ].filter((value) => value !== "")}
-      />
-      <Separator className=" bg-black dark:bg-white" orientation="vertical" />
-      <ControlPanelOption
-        type="single"
-        items={modes}
-        onSelect={(value: string) => {
-          console.log("value", value);
-          setMode(value as ModeType);
-          if (value === "time") {
-            setSubMode(30);
-          }
-
-          if (value === "text") {
-            setSubMode(25);
-          }
-        }}
-        value={mode}
-      />
-      <Separator className=" bg-black dark:bg-white" orientation="vertical" />
-      <ControlPanelOption
-        type="single"
-        items={mode === "time" ? timeOptions : textOptions}
-        onSelect={(value: string) => {
-          console.log("value -- p --", parseInt(value) as SubModeType);
-          setSubMode(parseInt(value) as SubModeType);
-          console.log("value subMode, and type", subMode, typeof subMode);
-        }}
-        value={subMode}
-      />
+      {!isTyping && (
+        <>
+          <ControlPanelOption
+            type="multiple"
+            items={extraCharacters}
+            onSelect={(values: string[]) => {
+              console.log("values", values);
+              if (values.includes("numbers")) {
+                setNumbers(true);
+              } else {
+                setNumbers(false);
+              }
+              if (values.includes("punctuation")) {
+                setPunctuation(true);
+              } else {
+                setPunctuation(false);
+              }
+            }}
+            value={[
+              punctuation ? "punctuation" : "",
+              numbers ? "numbers" : "",
+            ].filter((value) => value !== "")}
+          />
+          <Separator
+            className=" bg-black dark:bg-white"
+            orientation="vertical"
+          />
+          <ControlPanelOption
+            type="single"
+            items={modes}
+            onSelect={(value: string) => {
+              console.log("value", value);
+              setMode(value as ModeType);
+              if (value === "time") {
+                setSubMode(30);
+              }
+              if (value === "text") {
+                setSubMode(25);
+              }
+            }}
+            value={mode}
+          />
+          <Separator
+            className=" bg-black dark:bg-white"
+            orientation="vertical"
+          />
+          <ControlPanelOption
+            type="single"
+            items={mode === "time" ? timeOptions : textOptions}
+            onSelect={(value: string) => {
+              console.log("value -- p --", parseInt(value) as SubModeType);
+              setSubMode(parseInt(value) as SubModeType);
+              console.log("value subMode, and type", subMode, typeof subMode);
+            }}
+            value={subMode}
+          />
+        </>
+      )}
     </div>
   );
 }

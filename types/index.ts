@@ -1,6 +1,12 @@
 import { ControlPanelOptionType } from "./control-panel-option";
 import { LetterType, WordType } from "./keys";
-import { ModeType, SubModeType } from "./core";
+import {
+  ModeType,
+  SubModeType,
+  AnalysisType,
+  Language,
+  WordsRequest,
+} from "./core";
 
 export type {
   ControlPanelOptionType,
@@ -8,4 +14,7 @@ export type {
   WordType,
   ModeType,
   SubModeType,
+  AnalysisType,
+  Language,
+  WordsRequest,
 };

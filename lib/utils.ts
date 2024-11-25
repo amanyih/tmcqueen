@@ -6,10 +6,10 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export function parseText(text: string): WordType[] {
+export function parseText(text: string[]): WordType[] {
   let words: WordType[] = [];
 
-  text.split(" ").forEach((word) => {
+  text.forEach((word) => {
     word = word.trim();
     let letters: LetterType[] = word.split("").map((char) => ({
       char,
@@ -26,6 +26,8 @@ export function parseText(text: string): WordType[] {
   if (words.length > 0) {
     words.pop();
   }
+
+  console.log("fetching and parsing", words);
 
   return words;
 }

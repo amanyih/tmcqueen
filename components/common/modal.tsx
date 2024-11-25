@@ -27,31 +27,12 @@ export function Modal() {
     >
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>{"Time's up!"}</DialogTitle>
+          <DialogTitle>{modal.title}</DialogTitle>
           <DialogDescription>
             {"You have completed the typing practice."}
           </DialogDescription>
         </DialogHeader>
-        <div>
-          <Label>WPM:</Label>
-          <Input type="number" value={0} readOnly />
-
-          <Label>Accuracy:</Label>
-          <Input type="number" value={0} readOnly />
-
-          <Label>Time taken:</Label>
-          <Input type="number" value={0} readOnly />
-
-          <Label>Test type:</Label>
-          <Input type="text" value={"Typing Practice"} readOnly />
-
-          <Label>Consistency:</Label>
-          <Input type="number" value={0} readOnly />
-
-          <Label>Raw speed:</Label>
-          <Input type="number" value={0} readOnly />
-        </div>
-
+        <div>{modal.content}</div>
         <DialogFooter>
           <Button onClick={() => (modal.isOpen ? closeModal() : null)}>
             Close

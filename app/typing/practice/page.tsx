@@ -1,110 +1,87 @@
 "use client";
-import { TypingArea } from "@/components/common";
+import { TypingArea, LanguagePicker } from "@/components/common";
+import { Result } from "@/components/common/result";
 import { ControlPanel } from "@/components/feature";
-import { parseText } from "@/lib/utils";
-import { WordType } from "@/types";
-import { ProgressBar } from "@/components/feature";
-import { useRef, useState } from "react";
+import { useKeyPress } from "@/hooks";
+import { analyzer } from "@/lib/analyzer";
 import { usePracticeStore, useUIStore } from "@/store";
+import { WordsRequest } from "@/types";
+import { useCallback, useEffect, useState } from "react";
 
 export default function Practice() {
-  const text = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac nisl nec erat ultricies suscipit. Nulla facilisi. Nullam eget felis nec justo ultrices ultricies. Nullam in odio nec nunc ultricies ultricies. Nullam nec eros nec eros ultricies ultricies. Nulla facilisi. Nullam eget felis nec justo ultricies ultricies. Nullam in odio nec nunc ultricies ultricies. Nullam nec eros nec eros ultricies ultricies. Nulla facilisi. Nullam eget felis`;
-  const [words, setWords] = useState<WordType[]>(parseText(text));
-  const [currentWordIndex, setCurrentWordIndex] = useState<number>(0);
-  const [currentLetterIndex, setCurrentLetterIndex] = useState<number>(0);
-  const divRef = useRef<HTMLDivElement>(null);
+  const {
+    setCurrentWordIndex,
+    setReset,
+    countdown,
+    subMode,
+    restart,
+    language,
+    setLanguage,
+    numbers,
+    punctuation,
+    reset,
+  } = usePracticeStore();
 
-  const { restart, startTyping, isTyping } = usePracticeStore();
-  const { modal } = useUIStore();
+  const [wordRequest, setWordRequest] = useState<WordsRequest>({
+    count: subMode as number,
+    language: language,
+    numbers: numbers,
+    punctuation,
+  });
 
-  const handleKeyPress = (event: React.KeyboardEvent<HTMLDivElement>) => {
-    const key = event.key;
+  const {
+    handleKeyPress,
+    handleRestart,
+    words,
+    currentWordIndex,
+    currentLetterIndex,
+  } = useKeyPress({
+    setWordIndex: setCurrentWordIndex,
+    wordRequest,
+  });
 
-    if (
-      key == "Shift" ||
-      key == "Control" ||
-      key == "CapsLock" ||
-      key == "Alt"
-    ) {
-      return;
-    }
+  const { openModal } = useUIStore();
 
-    if (modal.isOpen) {
-      return;
-    }
-
-    const wordsCopy = [...words];
-    const currentWord = wordsCopy[currentWordIndex];
-    const currentLetter = currentWord.letters[currentLetterIndex];
-
-    if (key == "Backspace") {
-      currentLetter.status = "pending";
-      if (currentLetterIndex == 0) {
-        console.log("backspace currentLetterIndex == 0");
-        if (currentWordIndex == 0) {
-          setWords(wordsCopy);
-          return;
-        }
-        let previousLetter =
-          words[currentWordIndex - 1].letters[
-            words[currentWordIndex - 1].letters.length - 1
-          ];
-        previousLetter.status = "pending";
-        setCurrentWordIndex(currentWordIndex - 1);
-        setCurrentLetterIndex(words[currentWordIndex - 1].letters.length - 1);
-      } else {
-        console.log("backspace currentLetterIndex != 0");
-        let previousLetter =
-          words[currentWordIndex].letters[currentLetterIndex - 1];
-        previousLetter.status = "pending";
-        setCurrentLetterIndex(currentLetterIndex - 1);
-      }
-      setWords(wordsCopy);
-      return;
-    }
-
-    if (!isTyping) {
-      startTyping();
-    }
-
-    if (currentLetter.char === key) {
-      currentLetter.status = "correct";
-      if (currentLetterIndex + 1 == currentWord.letters.length) {
-        setCurrentWordIndex(currentWordIndex + 1);
-        setCurrentLetterIndex(0);
-      } else {
-        setCurrentLetterIndex(currentLetterIndex + 1);
-      }
-    } else {
-      currentLetter.status = "incorrect";
-      if (currentLetterIndex + 1 == currentWord.letters.length) {
-        setCurrentWordIndex(currentWordIndex + 1);
-        setCurrentLetterIndex(0);
-      } else {
-        setCurrentLetterIndex(currentLetterIndex + 1);
-      }
-    }
-    setWords(wordsCopy);
-  };
-
-  const handleRestart = () => {
-    setCurrentWordIndex(0);
-    setCurrentLetterIndex(0);
-    setWords(parseText(text));
+  const finish = useCallback(() => {
+    const analysisResult = analyzer(words.slice(0, currentWordIndex), subMode);
+    openModal("Result", <Result analysisResult={analysisResult} />);
     restart();
-  };
+  }, [openModal, subMode, restart, words, currentWordIndex]);
+
+  useEffect(() => {
+    setReset(handleRestart);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    if (countdown === 0) {
+      finish();
+    }
+  }, [countdown, finish]);
+
+  useEffect(() => {
+    setWordRequest({
+      count: subMode as number,
+      language: language,
+      numbers: numbers,
+      punctuation,
+    });
+
+    console.log("regen change in", subMode, language, numbers, punctuation);
+  }, [subMode, language, numbers, punctuation]);
+
   return (
     <main
-      className="px-8 flex flex-col gap-[15%] py-8 flex-grow focus:outline-none"
+      className="px-8 flex flex-col gap-[8%] py-8 flex-grow focus:outline-none items-center"
       onKeyDown={handleKeyPress}
       tabIndex={0}
-      ref={divRef}
     >
       <ControlPanel />
+      <LanguagePicker value={language} setValue={setLanguage} />
       <TypingArea
         words={words}
         currentWordIndex={currentWordIndex}
-        handleRestart={handleRestart}
+        currentLetterIndex={currentLetterIndex}
       />
     </main>
   );

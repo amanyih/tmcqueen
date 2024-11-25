@@ -1,39 +1,64 @@
 "use client";
 import { useEffect, useState } from "react";
-import { Result } from "./result";
 import { usePracticeStore, useUIStore } from "@/store";
 
-export function TimeCountDown() {
-  const [isTimeUp, setIsTimeUp] = useState(false);
+export function TimeCountDown({}: {}) {
+  const { openModal } = useUIStore();
 
-  const { countdown, isTyping, decrementCountdown, restart } =
-    usePracticeStore();
+  const {
+    subMode,
+    isTyping,
+    mode,
+    currentWordIndex,
+    decrementCountdown,
+    setCountdown,
+    countdown: countdownState,
+  } = usePracticeStore();
 
-  const toggleDialog = () => {
-    setIsTimeUp(!isTimeUp);
-  };
+  const [countdown, setCountdownState] = useState<number>(subMode);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      if (isTyping) {
-        if (countdown === 0) {
-          setIsTimeUp(true);
-          restart();
-        } else {
-          decrementCountdown();
-        }
-      } else {
-        clearInterval(interval);
-      }
-    }, 1000);
+    setCountdownState(subMode);
+    if (!isTyping) {
+      setCountdownState(subMode);
+    }
+  }, [subMode, isTyping]);
 
-    return () => clearInterval(interval);
-  }, [isTyping, decrementCountdown, countdown, restart]);
+  useEffect(() => {
+    if (isTyping && mode === "time") {
+      console.log("coutingdown ");
+      const interval = setInterval(() => {
+        setCountdownState((prev) => {
+          if (prev === 0) {
+            clearInterval(interval);
+            return subMode;
+          }
+          return prev - 1;
+        });
+        console.log("coutingdown inside");
+        decrementCountdown();
+      }, 1000);
+      return () => clearInterval(interval);
+    }
+  }, [isTyping, openModal, mode, subMode, decrementCountdown]);
+
+  useEffect(() => {
+    if (isTyping && mode === "text") {
+      const index = currentWordIndex - Math.floor(currentWordIndex / 2);
+      setCountdownState((prev) => {
+        if (index === subMode) {
+          return subMode;
+        }
+        return subMode - index;
+      });
+      setCountdown(subMode - index);
+    }
+  }, [isTyping, mode, currentWordIndex, subMode, setCountdown]);
 
   return (
     <>
       <div className="inline-flex text-center p-4 self-end text-3xl">
-        <span>{countdown}</span>
+        <span>{countdownState}</span>
       </div>
     </>
   );

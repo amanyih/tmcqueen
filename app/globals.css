@@ -72,3 +72,13 @@ body {
   height: 100%;
   margin: 0;
 }
+
+.animate-blink {
+  animation: blink 1s steps(2, start) infinite;
+}
+
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
