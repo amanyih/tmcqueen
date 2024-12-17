@@ -1,5 +1,3 @@
-//mode: this type should only be either text or time
-
 export type ModeType = "text" | "time";
 
 export type SubModeType = 15 | 30 | 60 | 25 | 50 | 100;
@@ -30,3 +28,46 @@ export type WordsRequest = {
   language: string;
   count: number;
 };
+
+export type LetterType = {
+  char: string;
+  status: "correct" | "incorrect" | "pending";
+};
+
+export type WordType = {
+  letters: LetterType[];
+  completed: boolean;
+  startTimestamp?: number;
+  endTimestamp?: number;
+  duration?: number;
+  correct?: boolean;
+};
+
+export enum MODE {
+  WORDS = "WORDS",
+  TIME = "TIME",
+}
+
+export enum SUBMODE {
+  TWENTY_FIVE = 25,
+  FIFTY = 50,
+  HUNDRED = 100,
+
+  FIFTEEN_SECONDS = 15,
+  THIRTY_SECONDS = 30,
+  SIXTY_SECONDS = 60,
+  ONE_TWENTY = 120,
+}
+
+export enum BADGETYPE {
+  WPM = "WPM",
+  ACCURACY = "ACCURACY",
+  TESTS = "TESTS",
+  TIME = "TIME",
+}
+
+export enum THEME {
+  SYSTEM = "SYSTEM",
+  LIGHT = "LIGHT",
+  DARK = "DARK",
+}

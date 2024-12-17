@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
 import { ThemeProvider } from "next-themes";
-import { Footer, Navbar } from "@/components/layout";
-import { Modal } from "@/components/common";
+import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,10 +24,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Modal />
-          <Navbar />
           {children}
-          <Footer />
         </ThemeProvider>
       </body>
     </html>
