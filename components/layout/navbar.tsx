@@ -12,10 +12,18 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import { Trophy, Users, Keyboard, Info } from "lucide-react";
+import { Trophy, Users, Keyboard, Info, User } from "lucide-react";
 import { ThemeToggle } from "../theme/theme-toggle";
 import Notification from "./notification";
 import { Logo } from "../common";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+
+// Mock Auth State
+const isAuthenticated = true; // Replace with your auth logic
+const user = {
+  name: "John Doe",
+  avatar: "https://i.pravatar.cc/40?img=5", // Replace with the user's avatar URL
+};
 
 export function Navbar() {
   return (
@@ -69,15 +77,26 @@ export function Navbar() {
           </NavigationMenuList>
         </NavigationMenu>
 
-        {/* Right Section: Theme Toggle, Notification, and Button */}
+        {/* Right Section: Theme Toggle, Notification, and User Avatar */}
         <div className="flex items-center gap-4">
           <ThemeToggle />
           <Notification />
-          <Link href="/get-started">
-            <button className="px-4 py-2 bg-primary text-primary-foreground font-semibold rounded-md hover:bg-primary/90 transition-all duration-300">
-              Get Started
-            </button>
-          </Link>
+          {isAuthenticated ? (
+            <Link href="/profile" className="cursor-pointer">
+              <Avatar>
+                <AvatarImage src={user.avatar} alt={user.name} />
+                <AvatarFallback>
+                  <User className="h-5 w-5 text-muted-foreground" />
+                </AvatarFallback>
+              </Avatar>
+            </Link>
+          ) : (
+            <Link href="/get-started">
+              <button className="px-4 py-2 bg-primary text-primary-foreground font-semibold rounded-md hover:bg-primary/90 transition-all duration-300">
+                Get Started
+              </button>
+            </Link>
+          )}
         </div>
       </div>
     </nav>
