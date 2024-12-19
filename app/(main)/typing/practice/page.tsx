@@ -72,12 +72,11 @@ export default function Practice() {
 
   return (
     <main
-      className="px-8 flex flex-col gap-[8%] py-8 flex-grow focus:outline-none items-center"
+      className="px-8 flex flex-col gap-4 py-8 flex-grow focus:outline-none items-center"
       onKeyDown={handleKeyPress}
       tabIndex={0}
     >
       <ControlPanel />
-      <LanguagePicker value={language} setValue={setLanguage} />
       <TypingArea
         words={words}
         currentWordIndex={currentWordIndex}

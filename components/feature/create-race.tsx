@@ -64,7 +64,10 @@ const CreateRace = () => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button className="bg-primary text-white hover:bg-primary/90 transition">
+        <Button
+          size="lg"
+          className="bg-primary text-white hover:bg-primary/90 transition"
+        >
           Create New Race
         </Button>
       </DialogTrigger>

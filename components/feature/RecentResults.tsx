@@ -113,7 +113,7 @@ const RecentResults = () => {
                 {/* Additional Settings */}
                 <div className="space-y-1">
                   <div className="flex items-center gap-2">
-                    <Languages size={16} /> Language: {result.testLanguage}
+                    <Languages size={16} /> {result.testLanguage}
                   </div>
                   <div className="flex items-center gap-2">
                     <Hash size={16} />

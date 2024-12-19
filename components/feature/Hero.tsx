@@ -126,14 +126,34 @@ export const Hero = () => {
       <div className="text-center lg:text-start space-y-6">
         <main className="text-5xl md:text-6xl font-bold">
           <h1 className="inline">
-            <span className="inline bg-gradient-to-r from-[#FFB300] via-[#FF7300] to-[#FF3B00] text-transparent bg-clip-text">
+            <span
+              className="inline bg-gradient-to-r text-transparent bg-clip-text"
+              style={{
+                backgroundImage: `linear-gradient(
+          to right,
+          hsl(var(--secondary)),
+          hsl(var(--primary)),
+          hsl(var(--accent))
+        )`,
+              }}
+            >
               Speed Up
             </span>{" "}
             your typing
           </h1>{" "}
           and{" "}
           <h2 className="inline">
-            <span className="inline bg-gradient-to-r from-[#FFB300] via-[#FF7300] to-[#FF3B00] text-transparent bg-clip-text">
+            <span
+              className="inline bg-gradient-to-r text-transparent bg-clip-text"
+              style={{
+                backgroundImage: `linear-gradient(
+          to right,
+          hsl(var(--secondary)),
+          hsl(var(--primary)),
+          hsl(var(--accent))
+        )`,
+              }}
+            >
               race to the top!
             </span>
           </h2>

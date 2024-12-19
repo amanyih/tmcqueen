@@ -3,12 +3,44 @@
 @tailwind utilities;
 
 @layer base {
+  /* Base theme variables */
   :root {
     --background: 0 0% 100%; /* White */
     --foreground: 222.2 84% 4.9%; /* Dark Text */
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
     --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 12 90% 55%; /* Default theme primary color (Lightning McQueen) */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 40 100% 50%;
+    --secondary-foreground: 222.2 84% 4.9%;
+    --muted: 20 90% 90%;
+    --muted-foreground: 12 50% 40%;
+    --accent: 28 90% 60%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 12 90% 85%;
+    --input: 12 90% 85%;
+    --ring: 40 100% 50%;
+    --radius: 0.5rem;
+
+    /* Chart colors */
+    --chart-1: 12 76% 55%;
+    --chart-2: 40 100% 50%;
+    --chart-3: 28 90% 60%;
+    --chart-4: 0 0% 30%;
+    --chart-5: 0 100% 90%;
+  }
+
+  /* Lightning McQueen Theme */
+  [data-theme="lightning-mcqueen"] {
+    --background: 0 0% 100%; /* White */
+    --foreground: 222.2 84% 4.9%; /* Dark Text */
+    --card: 0 0% 100%; /* White */
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%; /* White */
     --popover-foreground: 222.2 84% 4.9%;
     --primary: 12 90% 55%; /* Lightning McQueen Red */
     --primary-foreground: 0 0% 100%; /* White for contrast */
@@ -23,9 +55,6 @@
     --border: 12 90% 85%; /* Light Red Border */
     --input: 12 90% 85%;
     --ring: 40 100% 50%; /* Golden Yellow Ring */
-    --radius: 0.5rem;
-
-    /* Chart colors (Inspired by Racing) */
     --chart-1: 12 76% 55%; /* Bright Red */
     --chart-2: 40 100% 50%; /* Golden Yellow */
     --chart-3: 28 90% 60%; /* Orange */
@@ -33,19 +62,19 @@
     --chart-5: 0 100% 90%; /* Light highlight */
   }
 
-  .dark {
+  [data-theme="lightning-mcqueen"].dark {
     --background: 222.2 84% 4.9%; /* Dark Gray */
     --foreground: 40 100% 95%; /* Off-white for contrast */
-    --card: 222.2 84% 4.9%;
+    --card: 222.2 84% 4.9%; /* Dark Gray */
     --card-foreground: 40 100% 95%;
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 40 100% 95%;
     --primary: 12 85% 65%; /* Slightly Deeper Red */
-    --primary-foreground: 40 100% 95%;
+    --primary-foreground: 40 100% 95%; /* Off-white */
     --secondary: 40 90% 55%; /* Golden Yellow Dark */
-    --secondary-foreground: 40 100% 95%;
+    --secondary-foreground: 40 100% 95%; /* Off-white */
     --muted: 12 50% 30%; /* Muted Red */
-    --muted-foreground: 40 90% 70%;
+    --muted-foreground: 40 90% 70%; /* Soft Red */
     --accent: 28 90% 50%; /* Dark Orange */
     --accent-foreground: 40 100% 95%;
     --destructive: 0 60% 50%; /* Darker Red Alert */
@@ -59,55 +88,182 @@
     --chart-4: 0 0% 15%; /* Soft Black */
     --chart-5: 0 100% 75%;
   }
-}
 
-@layer base {
-  * {
-    @apply border-border;
+  /* Chick Hicks Theme (Green) */
+  [data-theme="lightning-mcqueen"].dark {
+    --background: 222.2 84% 4.9%; /* Dark Gray */
+    --foreground: 40 100% 95%; /* Off-white for contrast */
+    --card: 222.2 84% 4.9%; /* Dark Gray */
+    --card-foreground: 40 100% 95%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 40 100% 95%;
+    --primary: 12 85% 65%; /* Slightly Deeper Red */
+    --primary-foreground: 40 100% 95%; /* Off-white */
+    --secondary: 40 90% 55%; /* Golden Yellow Dark */
+    --secondary-foreground: 40 100% 95%; /* Off-white */
+    --muted: 12 50% 30%; /* Muted Red */
+    --muted-foreground: 40 90% 70%; /* Soft Red */
+    --accent: 28 90% 50%; /* Dark Orange */
+    --accent-foreground: 40 100% 95%;
+    --destructive: 0 60% 50%; /* Darker Red Alert */
+    --destructive-foreground: 40 100% 95%;
+    --border: 12 40% 20%; /* Subtle Border */
+    --input: 12 40% 20%;
+    --ring: 40 90% 45%; /* Golden Yellow Ring */
+    --chart-1: 12 70% 55%;
+    --chart-2: 40 90% 55%;
+    --chart-3: 28 80% 50%;
+    --chart-4: 0 0% 15%; /* Soft Black */
+    --chart-5: 0 100% 75%;
   }
+
+  [data-theme="chick-hicks"] {
+    --background: 0 0% 100%; /* White */
+    --foreground: 222.2 84% 4.9%; /* Dark Text */
+    --card: 0 0% 100%; /* White */
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%; /* White */
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 150 90% 40%; /* Phthalo Green */
+    --primary-foreground: 0 0% 100%; /* White for contrast */
+    --secondary: 150 70% 50%; /* Lighter Phthalo Green */
+    --secondary-foreground: 222.2 84% 4.9%; /* Dark Text */
+    --muted: 150 30% 80%; /* Soft Light Green */
+    --muted-foreground: 150 40% 30%; /* Muted Dark Green */
+    --accent: 150 80% 45%; /* Vibrant Phthalo Green */
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%; /* Red Alert */
+    --destructive-foreground: 210 40% 98%;
+    --border: 150 40% 60%; /* Muted Green Border */
+    --input: 150 40% 60%; /* Muted Green Input */
+    --ring: 150 70% 50%; /* Phthalo Green Ring */
+    --chart-1: 150 76% 50%; /* Phthalo Green */
+    --chart-2: 150 65% 45%; /* Soft Phthalo Green */
+    --chart-3: 150 80% 55%; /* Vibrant Green */
+    --chart-4: 0 0% 30%; /* Black for contrast */
+    --chart-5: 0 100% 90%; /* Light highlight */
+  }
+
+  [data-theme="chick-hicks"].dark {
+    --background: 222.2 84% 4.9%; /* Dark Gray */
+    --foreground: 40 100% 95%; /* Off-white for contrast */
+    --card: 222.2 84% 4.9%; /* Dark Gray */
+    --card-foreground: 40 100% 95%;
+    --popover: 222.2 84% 4.9%; /* Dark Gray */
+    --popover-foreground: 40 100% 95%;
+    --primary: 150 60% 30%; /* Dark Phthalo Green */
+    --primary-foreground: 40 100% 95%; /* Off-white */
+    --secondary: 150 50% 25%; /* Muted Dark Green */
+    --secondary-foreground: 40 100% 95%; /* Off-white */
+    --muted: 150 20% 15%; /* Deep Dark Green */
+    --muted-foreground: 150 30% 40%; /* Softened Dark Green */
+    --accent: 150 60% 30%; /* Dark Phthalo Green */
+    --accent-foreground: 40 100% 95%; /* Off-white */
+    --destructive: 0 60% 50%; /* Darker Red Alert */
+    --destructive-foreground: 40 100% 95%;
+    --border: 150 30% 20%; /* Subtle Dark Green Border */
+    --input: 150 30% 20%; /* Subtle Dark Green Input */
+    --ring: 150 50% 35%; /* Dark Phthalo Green Ring */
+    --chart-1: 150 60% 40%; /* Dark Phthalo Green */
+    --chart-2: 150 50% 30%; /* Muted Green */
+    --chart-3: 150 60% 50%; /* Vibrant Green */
+    --chart-4: 0 0% 15%; /* Soft Black */
+    --chart-5: 0 100% 75%; /* Light highlight */
+  }
+
+  /* Strip Weathers Theme (Blue) */
+  [data-theme="strip-weathers"] {
+    --background: 0 0% 100%; /* White */
+    --foreground: 222.2 84% 4.9%; /* Dark Text */
+    --card: 0 0% 100%; /* White */
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%; /* White */
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 220 85% 55%; /* Blue */
+    --primary-foreground: 0 0% 100%; /* White for contrast */
+    --secondary: 200 70% 45%; /* Light Blue */
+    --secondary-foreground: 222.2 84% 4.9%;
+    --muted: 200 40% 85%; /* Soft Blue */
+    --muted-foreground: 220 60% 40%; /* Medium Blue */
+    --accent: 240 80% 60%; /* Vibrant Sky Blue */
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%; /* Red Alert */
+    --destructive-foreground: 210 40% 98%;
+    --border: 220 40% 75%; /* Light Blue Border */
+    --input: 220 40% 75%;
+    --ring: 200 70% 45%; /* Light Blue Ring */
+    --chart-1: 220 76% 55%; /* Bright Blue */
+    --chart-2: 200 70% 45%; /* Light Blue */
+    --chart-3: 240 80% 60%; /* Vibrant Sky Blue */
+    --chart-4: 0 0% 30%; /* Black for contrast */
+    --chart-5: 0 100% 90%; /* Light highlight */
+  }
+
+  [data-theme="strip-weathers"].dark {
+    --background: 222.2 84% 4.9%; /* Dark Gray */
+    --foreground: 40 100% 95%; /* Off-white for contrast */
+    --card: 222.2 84% 4.9%; /* Dark Gray */
+    --card-foreground: 40 100% 95%;
+    --popover: 222.2 84% 4.9%; /* Dark Gray */
+    --popover-foreground: 40 100% 95%;
+    --primary: 220 70% 40%; /* Dark Blue */
+    --primary-foreground: 40 100% 95%; /* Off-white */
+    --secondary: 200 50% 35%; /* Muted Light Blue */
+    --secondary-foreground: 40 100% 95%;
+    --muted: 200 30% 25%; /* Muted Dark Blue */
+    --muted-foreground: 200 50% 70%;
+    --accent: 240 60% 40%; /* Dark Vibrant Sky Blue */
+    --accent-foreground: 40 100% 95%;
+    --destructive: 0 60% 50%; /* Darker Red Alert */
+    --destructive-foreground: 40 100% 95%;
+    --border: 220 30% 15%; /* Subtle Border */
+    --input: 220 30% 15%;
+    --ring: 200 50% 35%; /* Light Blue Ring */
+    --chart-1: 220 70% 55%;
+    --chart-2: 200 60% 45%;
+    --chart-3: 240 70% 50%;
+    --chart-4: 0 0% 15%; /* Soft Black */
+    --chart-5: 0 100% 75%;
+  }
+
   body {
     @apply bg-background text-foreground;
   }
 }
 
-html,
-body {
-  height: 100%;
-  margin: 0;
-}
-
-/* Custom Scrollbar */
+/* Scrollbar styling */
 ::-webkit-scrollbar {
-  width: 10px; /* Set the width */
+  width: 10px;
   height: 10px;
 }
 
-/* Transparent Scrollbar Track */
 ::-webkit-scrollbar-track {
-  background-color: transparent; /* Removes color from the track */
+  background-color: transparent;
 }
 
-/* Scrollbar Thumb */
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(
     to bottom,
     hsl(var(--primary)),
     hsl(var(--accent))
-  ); /* Red to Orange gradient */
-  border-radius: var(--radius); /* Rounded corners for thumb */
-  border: 2px solid transparent; /* Removes top and bottom indicators */
-  background-clip: padding-box; /* Ensures thumb styling remains intact */
+  );
+  border-radius: var(--radius);
+  border: 2px solid transparent;
+  background-clip: padding-box;
 }
 
-/* Scrollbar Thumb Hover Effect */
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(var(--secondary)); /* Golden Yellow on hover */
+  background: hsl(var(--secondary));
 }
 
-/* Firefox Scrollbar (Optional) */
 * {
-  scrollbar-color: hsl(var(--primary)) transparent; /* Thumb color + Transparent Track */
-  scrollbar-width: thin; /* Slim scrollbar */
+  scrollbar-color: hsl(var(--primary)) transparent;
+  scrollbar-width: thin;
+}
+
+/* Utility classes */
+html {
+  scroll-behavior: smooth;
 }
 
 .animate-blink {
@@ -120,23 +276,35 @@ body {
   }
 }
 
-html {
-  scroll-behavior: smooth;
+/* Shadow animation */
+.animated-glow {
+  position: absolute;
+  background: hsl(var(--primary) / 0%);
+  border-radius: 24px;
+  rotate: 35deg;
+  z-index: -1;
+  width: 260px;
+  top: 200px;
+  height: 400px;
+  filter: blur(150px);
+  will-change: transform;
+  animation: shadow-slide infinite 4s linear alternate;
 }
 
-@layer utilities {
-  .animated-glow {
-    position: absolute;
-    background: hsl(var(--primary) / 0%);
-    border-radius: 24px;
-    rotate: 35deg;
-    z-index: -1;
-    width: 260px;
-    top: 200px;
-    height: 400px;
-    filter: blur(150px);
-    will-change: transform;
-    animation: shadow-slide infinite 4s linear alternate;
+@keyframes shadow-slide {
+  from {
+    background: hsl(var(--primary) / 20%);
+    right: 460px;
+  }
+  to {
+    background: hsl(var(--primary) / 80%);
+    right: 160px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .shadow {
+    top: 70px;
   }
 
   @keyframes shadow-slide {
@@ -145,45 +313,28 @@ html {
       right: 460px;
     }
     to {
-      background: hsl(var(--primary) / 80%);
+      background: hsl(var(--primary) / 50%);
       right: 160px;
     }
   }
+}
 
-  @media (max-width: 1024px) {
-    .shadow {
-      top: 70px;
-    }
-
-    @keyframes shadow-slide {
-      from {
-        background: hsl(var(--primary) / 20%);
-        right: 460px;
-      }
-      to {
-        background: hsl(var(--primary) / 50%);
-        right: 160px;
-      }
-    }
+@media (max-width: 768px) {
+  .shadow {
+    top: 70px;
+    width: 100px;
+    height: 350px;
+    filter: blur(60px);
   }
 
-  @media (max-width: 768px) {
-    .shadow {
-      top: 70px;
-      width: 100px;
-      height: 350px;
-      filter: blur(60px);
+  @keyframes shadow-slide {
+    from {
+      background: hsl(var(--primary) / 20%);
+      right: 280px;
     }
-
-    @keyframes shadow-slide {
-      from {
-        background: hsl(var(--primary) / 20%);
-        right: 280px;
-      }
-      to {
-        background: hsl(var(--primary) / 30%);
-        right: 100px;
-      }
+    to {
+      background: hsl(var(--primary) / 30%);
+      right: 100px;
     }
   }
 }

@@ -5,5 +5,5 @@ type ProgressBarProps = {
 };
 
 export function ProgressBar({ value }: ProgressBarProps) {
-  return <Progress value={value} />;
+  return <Progress className="h-2" value={value} />;
 }

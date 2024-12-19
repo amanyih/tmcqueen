@@ -1,11 +1,12 @@
 "use client";
-import { ControlPanelOptionType, ModeType, SubModeType } from "@/types";
 import { Bold } from "lucide-react";
 import { ControlPanelOption } from "./control-panel-option";
 import { Separator } from "../ui/separator";
 import { usePracticeStore } from "@/store";
+import { ControlPanelOptionType, ModeType, SubModeType } from "@/types";
+import { LanguagePicker } from "../common";
 
-export default function ControlPanel() {
+export default function ControlPanel(): JSX.Element {
   const {
     setMode,
     setNumbers,
@@ -15,135 +16,84 @@ export default function ControlPanel() {
     mode,
     punctuation,
     numbers,
+    language,
+    setLanguage,
   } = usePracticeStore();
-  const extraCharacters: Array<ControlPanelOptionType> = [
-    {
-      label: "Punctuation",
-      value: "punctuation",
-      icon: <Bold />,
-    },
-    {
-      label: "Numbers",
-      value: "numbers",
-      icon: <Bold />,
-    },
+
+  const extraCharacters: ControlPanelOptionType[] = [
+    { label: "Punctuation", value: "punctuation", icon: <Bold size={18} /> },
+    { label: "Numbers", value: "numbers", icon: <Bold size={18} /> },
   ];
 
-  const modes: Array<ControlPanelOptionType> = [
-    {
-      label: "Time",
-      value: "time",
-      icon: <Bold />,
-    },
-    {
-      label: "Text",
-      value: "text",
-      icon: <Bold />,
-    },
+  const modes: ControlPanelOptionType[] = [
+    { label: "Time", value: "time", icon: <Bold size={18} /> },
+    { label: "Text", value: "text", icon: <Bold size={18} /> },
   ];
 
-  const timeOptions: Array<ControlPanelOptionType> = [
-    {
-      label: "15",
-      value: "15",
-      icon: "",
-    },
-    {
-      label: "30",
-      value: "30",
-      icon: "",
-    },
-    {
-      label: "60",
-      value: "60",
-      icon: "",
-    },
+  const timeOptions: ControlPanelOptionType[] = [
+    { label: "15", value: "15" },
+    { label: "30", value: "30" },
+    { label: "60", value: "60" },
   ];
 
-  const textOptions: Array<ControlPanelOptionType> = [
-    {
-      label: "25",
-      value: "25",
-      icon: "",
-    },
-    {
-      label: "50",
-      value: "50",
-      icon: "",
-    },
-    {
-      label: "100",
-      value: "100",
-      icon: "",
-    },
+  const textOptions: ControlPanelOptionType[] = [
+    { label: "25", value: "25" },
+    { label: "50", value: "50" },
+    { label: "100", value: "100" },
   ];
-
-  const { isTyping } = usePracticeStore();
 
   return (
-    <div
-      className={`inline-flex h-14 items-center space-x-4 text-sm px-4 py-2 border-2 border-black dark:border-white bg-white dark:bg-black rounded-full shadow-lg dark:shadow-none mx-auto ${
-        isTyping ? "opacity-0" : "opacity-100"
-      }`}
-    >
-      {!isTyping && (
-        <>
-          <ControlPanelOption
-            type="multiple"
-            items={extraCharacters}
-            onSelect={(values: string[]) => {
-              console.log("values", values);
-              if (values.includes("numbers")) {
-                setNumbers(true);
-              } else {
-                setNumbers(false);
-              }
-              if (values.includes("punctuation")) {
-                setPunctuation(true);
-              } else {
-                setPunctuation(false);
-              }
-            }}
-            value={[
-              punctuation ? "punctuation" : "",
-              numbers ? "numbers" : "",
-            ].filter((value) => value !== "")}
-          />
-          <Separator
-            className=" bg-black dark:bg-white"
-            orientation="vertical"
-          />
-          <ControlPanelOption
-            type="single"
-            items={modes}
-            onSelect={(value: string) => {
-              console.log("value", value);
-              setMode(value as ModeType);
-              if (value === "time") {
-                setSubMode(30);
-              }
-              if (value === "text") {
-                setSubMode(25);
-              }
-            }}
-            value={mode}
-          />
-          <Separator
-            className=" bg-black dark:bg-white"
-            orientation="vertical"
-          />
-          <ControlPanelOption
-            type="single"
-            items={mode === "time" ? timeOptions : textOptions}
-            onSelect={(value: string) => {
-              console.log("value -- p --", parseInt(value) as SubModeType);
-              setSubMode(parseInt(value) as SubModeType);
-              console.log("value subMode, and type", subMode, typeof subMode);
-            }}
-            value={subMode}
-          />
-        </>
-      )}
+    <div className="flex items-center justify-center gap-3 p-3 rounded-full bg-white dark:bg-gray-900 shadow-md border border-gray-300 dark:border-gray-700 scale-[0.8]">
+      {/* Extra Characters */}
+      <ControlPanelOption
+        type="multiple"
+        items={extraCharacters}
+        onSelect={(value: string | string[]) => {
+          const values = Array.isArray(value) ? value : [value];
+          setNumbers(values.includes("numbers"));
+          setPunctuation(values.includes("punctuation"));
+        }}
+        value={[
+          ...(punctuation ? ["punctuation"] : []),
+          ...(numbers ? ["numbers"] : []),
+        ]}
+      />
+
+      <Separator
+        orientation="vertical"
+        className="bg-gray-300 dark:bg-gray-700 h-6"
+      />
+
+      {/* Mode Selection */}
+      <ControlPanelOption
+        type="single"
+        items={modes}
+        onSelect={(value: string | string[]) => {
+          const selectedValue = Array.isArray(value) ? value[0] : value;
+          setMode(selectedValue as ModeType);
+          setSubMode(selectedValue === "time" ? 30 : 25);
+        }}
+        value={mode}
+      />
+
+      <Separator
+        orientation="vertical"
+        className="bg-gray-300 dark:bg-gray-700 h-6"
+      />
+
+      {/* SubMode Selection */}
+      <ControlPanelOption
+        type="single"
+        items={mode === "time" ? timeOptions : textOptions}
+        onSelect={(value: string | string[]) => {
+          const selectedValue = Array.isArray(value) ? value[0] : value;
+          setSubMode(parseInt(selectedValue, 10) as SubModeType);
+        }}
+        value={subMode.toString()}
+      />
+
+      {/* Language Picker */}
+      <LanguagePicker value={language} setValue={setLanguage} />
     </div>
   );
 }
