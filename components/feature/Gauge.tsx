@@ -13,26 +13,23 @@ export default function Gauge() {
   >([]);
 
   useEffect(() => {
-    // Fetch theme colors from CSS variables
     const rootStyles = getComputedStyle(document.documentElement);
     const startHue = parseFloat(
       rootStyles.getPropertyValue("--primary").split(" ")[0]
-    ); // Primary hue
+    );
     const endHue = parseFloat(
       rootStyles.getPropertyValue("--secondary").split(" ")[0]
-    ); // Secondary hue
+    );
 
-    // Dynamically create sub-arcs based on theme
     const newSubArcs = Array.from({ length: number_of_subarcs }, (_, i) => {
       const progress = (i * 100) / number_of_subarcs;
 
-      // Interpolate between primary and secondary hues
       const hue = startHue + (progress / 100) * (endHue - startHue);
-      const lightness = 45 + (progress / 100) * 10; // Slightly brighter as progress increases
+      const lightness = 45 + (progress / 100) * 10;
 
       return {
         value: progress,
-        color: `hsl(${hue}, 85%, ${lightness}%)`, // Dynamic gradient
+        color: `hsl(${hue}, 85%, ${lightness}%)`,
         width: 0.1,
         showTick: true,
       };
@@ -44,7 +41,7 @@ export default function Gauge() {
   return (
     <GaugeComponent
       className="w-64"
-      value={80} // Current gauge value
+      value={80}
       type="radial"
       labels={{
         tickLabels: {

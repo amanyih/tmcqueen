@@ -27,14 +27,12 @@ export function Result({ analysisResult }: { analysisResult: AnalysisType }) {
       <Separator className="my-4" />
 
       <CardContent className="grid grid-cols-2 gap-4">
-        {/* WPM */}
         <div className="flex flex-col items-center">
           <Gauge className="w-6 h-6 text-secondary" />
           <span className="text-sm font-medium text-muted-foreground">WPM</span>
           <Badge className="text-lg bg-primary/10 text-primary">{wpm}</Badge>
         </div>
 
-        {/* Accuracy */}
         <div className="flex flex-col items-center">
           <CheckCircle className="w-6 h-6 text-green-500" />
           <span className="text-sm font-medium text-muted-foreground">
@@ -45,7 +43,6 @@ export function Result({ analysisResult }: { analysisResult: AnalysisType }) {
           </Badge>
         </div>
 
-        {/* Time Taken */}
         <div className="flex flex-col items-center">
           <Clock className="w-6 h-6 text-muted-foreground" />
           <span className="text-sm font-medium text-muted-foreground">
@@ -56,7 +53,6 @@ export function Result({ analysisResult }: { analysisResult: AnalysisType }) {
           </Badge>
         </div>
 
-        {/* Test Type */}
         <div className="flex flex-col items-center">
           <Target className="w-6 h-6 text-blue-500" />
           <span className="text-sm font-medium text-muted-foreground">
@@ -67,7 +63,6 @@ export function Result({ analysisResult }: { analysisResult: AnalysisType }) {
           </Badge>
         </div>
 
-        {/* Consistency */}
         <div className="flex flex-col items-center">
           <Gauge className="w-6 h-6 text-orange-500" />
           <span className="text-sm font-medium text-muted-foreground">
@@ -78,7 +73,6 @@ export function Result({ analysisResult }: { analysisResult: AnalysisType }) {
           </Badge>
         </div>
 
-        {/* Raw Speed */}
         <div className="flex flex-col items-center">
           <LucideParkingMeter className="w-6 h-6 text-purple-500" />
           <span className="text-sm font-medium text-muted-foreground">

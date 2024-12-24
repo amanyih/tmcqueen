@@ -71,12 +71,10 @@ const RecentRaces = () => {
                     : "bg-muted/10"
                 }`}
               >
-                {/* Race Title */}
                 <div className="text-lg font-semibold text-primary">
                   {race.title}
                 </div>
 
-                {/* Top Section: Date and Properties */}
                 <div className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
                   <span className="flex items-center gap-1">
                     <Clock size={16} /> {race.date}
@@ -95,9 +93,7 @@ const RecentRaces = () => {
                   <Badge variant="outline">{race.properties.visibility}</Badge>
                 </div>
 
-                {/* Main Content: Rank, Words Typed, Accuracy */}
                 <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-                  {/* Rank */}
                   <div className="flex flex-col items-center">
                     <Badge
                       className={`text-md ${
@@ -110,7 +106,6 @@ const RecentRaces = () => {
                     </Badge>
                   </div>
 
-                  {/* Words Typed */}
                   <div className="text-center">
                     <span className="text-lg font-semibold">
                       {race.wordsTyped}
@@ -120,7 +115,6 @@ const RecentRaces = () => {
                     </div>
                   </div>
 
-                  {/* Accuracy */}
                   <div className="text-center">
                     <span
                       className={`text-lg font-semibold ${
@@ -136,7 +130,6 @@ const RecentRaces = () => {
                     </div>
                   </div>
 
-                  {/* Winner/Status Icon */}
                   <div className="flex items-center gap-1">
                     {race.isWinner ? (
                       <CheckCircle size={20} className="text-green-500" />

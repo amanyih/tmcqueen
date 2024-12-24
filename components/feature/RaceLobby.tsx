@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import Invite from "./invite"; // Shadcn-based Invite component
+import Invite from "./invite";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
@@ -52,14 +52,7 @@ const RaceLobby = () => {
         </Button>
       </div>
 
-      {/* Race Settings */}
-
-      <div
-        className="
-        flex 
-        gap-2
-      "
-      >
+      <div className=" flex  gap-2 ">
         <Badge variant="outline">{raceDetails.settings.subMode} words</Badge>
         <Badge variant="outline">{raceDetails.settings.language}</Badge>
         {raceDetails.settings.hasNumbers && (
@@ -93,7 +86,6 @@ const RaceLobby = () => {
                     key={index}
                     className="flex items-center justify-between px-4 py-3 hover:bg-muted/60 transition-colors"
                   >
-                    {/* Left: Avatar and Name */}
                     <div className="flex items-center gap-4">
                       <Avatar>
                         <AvatarImage
@@ -114,7 +106,6 @@ const RaceLobby = () => {
                       </div>
                     </div>
 
-                    {/* Right: Player Rank */}
                     <span className="text-xs text-muted-foreground">
                       Player {index + 1}
                     </span>
@@ -125,7 +116,6 @@ const RaceLobby = () => {
         </CardContent>
       </Card>
 
-      {/* Invite Users Section */}
       <Card className="border border-border shadow-lg">
         <CardHeader>
           <CardTitle className="text-2xl text-secondary font-semibold">

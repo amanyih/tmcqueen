@@ -25,15 +25,7 @@ export function Modal() {
         <div>{modal.content}</div>
         <DialogFooter>
           <div
-            className="
-              bg-secondary
-              py-2
-              px-4
-              rounded-md
-              text-white
-              hover:bg-secondary/90
-              cursor-pointer
-            "
+            className="bg-secondary py-2 px-4 rounded-md text-white hover:bg-secondary/90 cursor-pointer"
             onClick={() => (modal.isOpen ? closeModal() : null)}
           >
             Close

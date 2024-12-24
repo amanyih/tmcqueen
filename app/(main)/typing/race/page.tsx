@@ -14,9 +14,7 @@ import { CreateRace, RaceCard, LeaderBoard } from "@/components/feature";
 const RacePage = () => {
   return (
     <div className="container mx-auto grid grid-cols-1 lg:grid-cols-7 gap-8 py-8 px-4 lg:px-8">
-      {/* Left Section: Main Content */}
       <div className="col-span-5 space-y-8">
-        {/* Header Section */}
         <header className="flex justify-between items-center bg-background p-4 rounded-lg ">
           <h1 className="text-4xl font-bold text-primary tracking-tight"></h1>
           <div className="flex gap-4">
@@ -32,8 +30,6 @@ const RacePage = () => {
             <CreateRace />
           </div>
         </header>
-
-        {/* Private Invited Races */}
         <section>
           <h2 className="text-3xl font-bold mb-6 text-primary tracking-wide">
             Private Races
@@ -45,7 +41,6 @@ const RacePage = () => {
           </div>
         </section>
 
-        {/* Public Races */}
         <section>
           <h2 className="text-3xl font-bold mb-6 text-primary tracking-wide">
             Public Races
@@ -57,8 +52,6 @@ const RacePage = () => {
           </div>
         </section>
       </div>
-
-      {/* Right Section: Leaderboard */}
       <aside className="col-span-2 space-y-8">
         <>
           <h2 className="text-2xl font-bold text-primary text-center">
@@ -77,7 +70,6 @@ const RacePage = () => {
             </Button>
           </div>
         </>
-        {/* Previous Races */}
         <section>
           <h2 className="text-3xl font-bold mb-6 text-primary tracking-wide">
             Previous Races

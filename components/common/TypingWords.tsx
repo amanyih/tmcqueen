@@ -33,7 +33,6 @@ export const TypingWord: React.FC<TypingWordProps> = ({
 
         return (
           <span key={letterIndex} className={`${getLetterClass()} relative`}>
-            {/* Caret */}
             {isCaretPosition && (
               <span
                 className="absolute top-0 left-0 w-[2px] h-full bg-primary animate-blink"

@@ -71,7 +71,6 @@ const RecentResults = () => {
                 key={index}
                 className="p-4 rounded-lg border bg-muted/10 grid grid-cols-1 md:grid-cols-4 gap-4"
               >
-                {/* Test Mode & Submode */}
                 <div>
                   <div className="flex items-center gap-2">
                     <Brackets size={18} className="text-primary" />
@@ -84,7 +83,6 @@ const RecentResults = () => {
                   </div>
                 </div>
 
-                {/* WPM & Raw WPM */}
                 <div>
                   <div className="flex items-center gap-2">
                     <ParkingMeter size={18} className="text-primary" />
@@ -97,7 +95,6 @@ const RecentResults = () => {
                   </span>
                 </div>
 
-                {/* Accuracy & Duration */}
                 <div>
                   <div className="flex items-center gap-2">
                     <Percent size={18} className="text-green-500" />
@@ -110,7 +107,6 @@ const RecentResults = () => {
                   </div>
                 </div>
 
-                {/* Additional Settings */}
                 <div className="space-y-1">
                   <div className="flex items-center gap-2">
                     <Languages size={16} /> {result.testLanguage}

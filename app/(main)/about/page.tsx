@@ -8,7 +8,6 @@ import { Rocket, Users, BarChart, Keyboard } from "lucide-react";
 const AboutPage = () => {
   return (
     <main className="container mx-auto py-12 px-4 lg:px-8 space-y-12">
-      {/* Header Section */}
       <section className="text-center space-y-4">
         <h1 className="text-4xl font-bold text-primary tracking-tight">
           Welcome to Typing McQueen
@@ -20,9 +19,7 @@ const AboutPage = () => {
         </p>
       </section>
 
-      {/* Features Section */}
       <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        {/* Race Feature */}
         <Card className="shadow-md border border-border hover:shadow-lg transition-transform transform hover:-translate-y-1">
           <CardHeader className="flex items-center gap-2">
             <Rocket className="text-primary h-8 w-8" />
@@ -38,7 +35,6 @@ const AboutPage = () => {
           </CardContent>
         </Card>
 
-        {/* Practice Feature */}
         <Card className="shadow-md border border-border hover:shadow-lg transition-transform transform hover:-translate-y-1">
           <CardHeader className="flex items-center gap-2">
             <Keyboard className="text-primary h-8 w-8" />
@@ -54,7 +50,6 @@ const AboutPage = () => {
           </CardContent>
         </Card>
 
-        {/* Leaderboard Feature */}
         <Card className="shadow-md border border-border hover:shadow-lg transition-transform transform hover:-translate-y-1">
           <CardHeader className="flex items-center gap-2">
             <BarChart className="text-primary h-8 w-8" />
@@ -70,7 +65,6 @@ const AboutPage = () => {
           </CardContent>
         </Card>
 
-        {/* Compete with Others */}
         <Card className="shadow-md border border-border hover:shadow-lg transition-transform transform hover:-translate-y-1">
           <CardHeader className="flex items-center gap-2">
             <Users className="text-primary h-8 w-8" />
@@ -87,7 +81,6 @@ const AboutPage = () => {
         </Card>
       </section>
 
-      {/* Call to Action */}
       <section className="text-center space-y-6">
         <h2 className="text-3xl font-semibold text-secondary">
           Start Your Typing Journey Today!

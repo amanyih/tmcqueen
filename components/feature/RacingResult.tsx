@@ -3,7 +3,7 @@
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Trophy, Flag, Clock, Target, CheckCircle, List } from "lucide-react";
+import { Trophy, Flag, Clock, CheckCircle, List } from "lucide-react";
 
 export function RacingResult({
   resultData,
@@ -38,7 +38,6 @@ export function RacingResult({
 
   return (
     <Card className="p-6 bg-muted/20 rounded-lg">
-      {/* Header */}
       <CardHeader>
         <CardTitle className="text-xl font-bold flex items-center space-x-2">
           <Trophy className="w-6 h-6 text-primary" />
@@ -56,9 +55,7 @@ export function RacingResult({
 
       <Separator className="my-4" />
 
-      {/* Race Details */}
       <CardContent className="grid grid-cols-2 gap-4">
-        {/* Rank */}
         <div className="flex flex-col items-center">
           <Flag className="w-6 h-6 text-blue-500" />
           <span className="text-sm font-medium text-muted-foreground">
@@ -69,7 +66,6 @@ export function RacingResult({
           </Badge>
         </div>
 
-        {/* Time Taken */}
         <div className="flex flex-col items-center">
           <Clock className="w-6 h-6 text-muted-foreground" />
           <span className="text-sm font-medium text-muted-foreground">
@@ -80,7 +76,6 @@ export function RacingResult({
           </Badge>
         </div>
 
-        {/* Accuracy */}
         <div className="flex flex-col items-center">
           <CheckCircle className="w-6 h-6 text-green-500" />
           <span className="text-sm font-medium text-muted-foreground">
@@ -91,7 +86,6 @@ export function RacingResult({
           </Badge>
         </div>
 
-        {/* WPM */}
         <div className="flex flex-col items-center">
           <List className="w-6 h-6 text-secondary" />
           <span className="text-sm font-medium text-muted-foreground">WPM</span>
@@ -101,7 +95,6 @@ export function RacingResult({
 
       <Separator className="my-4" />
 
-      {/* Race Configuration */}
       <CardContent className="grid grid-cols-2 gap-4">
         {/* Public Race */}
         <div className="flex flex-col items-center">
@@ -120,7 +113,6 @@ export function RacingResult({
           </Badge>
         </div>
 
-        {/* Includes Numbers */}
         <div className="flex flex-col items-center">
           <CheckCircle className="w-6 h-6 text-yellow-500" />
           <span className="text-sm font-medium text-muted-foreground">
@@ -137,7 +129,6 @@ export function RacingResult({
           </Badge>
         </div>
 
-        {/* Includes Punctuation */}
         <div className="flex flex-col items-center">
           <CheckCircle className="w-6 h-6 text-yellow-500" />
           <span className="text-sm font-medium text-muted-foreground">

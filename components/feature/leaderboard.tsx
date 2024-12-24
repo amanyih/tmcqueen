@@ -30,7 +30,6 @@ const LeaderBoard = () => {
               key={leader.name}
               className="flex items-center justify-between gap-4 px-4 py-3 hover:bg-muted transition-colors"
             >
-              {/* Left Section */}
               <div className="flex items-center gap-3 relative">
                 <div className="relative">
                   <Avatar className="h-12 w-12 border border-border">
@@ -39,7 +38,6 @@ const LeaderBoard = () => {
                       {leader.name.charAt(0).toUpperCase()}
                     </AvatarFallback>
                   </Avatar>
-                  {/* Crown on Top Player */}
                   {leader.position === 1 && (
                     <Crown
                       className="absolute -top-2 -right-2 h-5 w-5 text-yellow-400 rotate-45"
@@ -52,7 +50,6 @@ const LeaderBoard = () => {
                 </div>
               </div>
 
-              {/* Right Section */}
               <span
                 className={`text-sm font-semibold ${
                   leader.position === 1

@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { ProgressBar } from "@/components/feature";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import { TypingWord } from "./TypingWords";
 import { WordType } from "@/types";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
@@ -65,19 +64,16 @@ const RaceTypingComponent = ({
 
   return (
     <div className="relative flex flex-col items-center justify-center w-full ">
-      {/* Race Title */}
       <div className="text-center mb-6">
         <h1 className="text-4xl font-extrabold text-primary tracking-tight">
           {raceTitle}
         </h1>
       </div>
 
-      {/* Rank Display */}
       <div className="absolute top-4 right-8 bg-secondary text-secondary-foreground px-6 py-3 rounded-full shadow-lg text-xl font-extrabold z-10">
         {userRank}/{totalParticipants}
       </div>
 
-      {/* Typing Area */}
       <div className="w-full max-w-6xl bg-muted/10 p-6 rounded-lg shadow-md">
         <div className="mb-6 h-[250px] overflow-hidden">
           <p
@@ -100,7 +96,6 @@ const RaceTypingComponent = ({
         </div>
       </div>
 
-      {/* Leaderboard */}
       <section className="mt-8 w-full max-w-4xl bg-muted/10 p-4 rounded-lg shadow-md">
         <h2 className="text-md font-semibold text-primary mb-4 text-center">
           Top 5 Racers

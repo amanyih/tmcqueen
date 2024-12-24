@@ -37,7 +37,6 @@ const features: FeatureProps[] = [
 export const HowItWorks = () => {
   return (
     <section id="howItWorks" className="container text-center py-24 sm:py-32">
-      {/* Title */}
       <h2 className="text-3xl md:text-4xl font-bold leading-tight">
         How{" "}
         <span className="bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text">
@@ -50,7 +49,6 @@ export const HowItWorks = () => {
         just a few simple steps.
       </p>
 
-      {/* Features Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         {features.map(({ icon, title, description }: FeatureProps) => (
           <Card

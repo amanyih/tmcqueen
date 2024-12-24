@@ -8,7 +8,6 @@ export const LiveChat = () => {
       <h2 className="text-2xl font-bold text-primary mb-4">Live Chat</h2>
       <div className="bg-card rounded-lg shadow p-4 flex flex-col gap-2 h-[400px]">
         <ScrollArea className="flex-1 border p-2 rounded-md">
-          {/* Example Chat Messages */}
           <div className="space-y-2">
             <p className="text-sm">
               <span className="font-semibold">Shad Mirza:</span> Ready to race!

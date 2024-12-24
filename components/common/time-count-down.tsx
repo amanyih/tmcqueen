@@ -1,6 +1,5 @@
 "use client";
 import { useEffect, useState } from "react";
-import { Timer } from "lucide-react";
 import { usePracticeStore, useUIStore } from "@/store";
 
 export function TimeCountDown({}: {}) {

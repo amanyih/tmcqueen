@@ -20,25 +20,15 @@ import {
 
 const chartData = Array.from({ length: 30 }, (_, index) => {
   const date = new Date();
-  date.setDate(date.getDate() - (365 - index)); // Go back 365 days
+  date.setDate(date.getDate() - (365 - index));
 
   return {
-    date: date.toISOString().split("T")[0], // Format: YYYY-MM-DD
-    wpm: Math.floor(Math.random() * 100), // Random between 1-15
-    accuracy: Math.floor(Math.random() * 100), // Random between 1-10
+    date: date.toISOString().split("T")[0],
+    wpm: Math.floor(Math.random() * 100),
+    accuracy: Math.floor(Math.random() * 100),
   };
 });
 
-// Mock Data: WPM and Accuracy progression
-// const chartData = [
-//   { date: "2024-06-01", wpm: 80, accuracy: 96 },
-//   { date: "2024-06-02", wpm: 85, accuracy: 97 },
-//   { date: "2024-06-03", wpm: 90, accuracy: 98 },
-//   { date: "2024-06-04", wpm: 88, accuracy: 95 },
-//   { date: "2024-06-05", wpm: 92, accuracy: 99 },
-// ];
-
-// Chart configuration for styling
 const chartConfig = {
   wpm: {
     label: "WPM",
@@ -73,10 +63,10 @@ const WPMProgressionChart = () => {
               tickLine={false}
               axisLine={false}
               tickMargin={8}
-              tickFormatter={(value) => value.slice(5)} // Show day only
+              tickFormatter={(value) => value.slice(5)}
             />
             <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
-            {/* WPM Line */}
+
             <Line
               type="monotone"
               dataKey="wpm"
@@ -84,7 +74,7 @@ const WPMProgressionChart = () => {
               strokeWidth={2}
               dot={true}
             />
-            {/* Accuracy Line */}
+
             <Line
               type="monotone"
               dataKey="accuracy"

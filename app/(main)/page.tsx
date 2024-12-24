@@ -18,7 +18,6 @@ export default function Home() {
       <About />
       <HowItWorks />
       <Features />
-      {/* <Services /> */}
       <FAQ />
       <ScrollToTop />
     </main>

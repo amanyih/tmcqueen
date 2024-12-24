@@ -51,13 +51,11 @@ const LeaderboardPage = () => {
 
   return (
     <main className="container mx-auto py-12 px-4 lg:px-8 space-y-8">
-      {/* Header Section */}
       <section className="text-center space-y-6">
         <h1 className="text-4xl font-bold text-primary tracking-tight">
           Leaderboard
         </h1>
         <div className="flex flex-wrap justify-center gap-6">
-          {/* User's Practice Rank */}
           <Card className="w-72 border border-border shadow-md">
             <CardHeader>
               <CardTitle className="text-lg text-secondary text-center">
@@ -75,7 +73,6 @@ const LeaderboardPage = () => {
             </CardContent>
           </Card>
 
-          {/* User's Racing Rank */}
           <Card className="w-72 border border-border shadow-md">
             <CardHeader>
               <CardTitle className="text-lg text-secondary text-center">
@@ -94,7 +91,6 @@ const LeaderboardPage = () => {
         </div>
       </section>
 
-      {/* Countdown Section */}
       <section className="text-center">
         <p className="text-lg text-muted-foreground">
           Next Leaderboard Update In:
@@ -104,7 +100,6 @@ const LeaderboardPage = () => {
         </p>
       </section>
 
-      {/* Tabs Section */}
       <Tabs defaultValue="practice" className="w-full">
         <TabsList className="flex justify-center space-x-4 bg-card rounded-lg p-2">
           <TabsTrigger
@@ -121,7 +116,6 @@ const LeaderboardPage = () => {
           </TabsTrigger>
         </TabsList>
 
-        {/* Practice Leaderboard */}
         <TabsContent value="practice" className="mt-6">
           <Tabs defaultValue="time">
             <TabsList className="flex justify-center space-x-4 mb-4">
@@ -129,7 +123,6 @@ const LeaderboardPage = () => {
               <TabsTrigger value="words">Words Mode</TabsTrigger>
             </TabsList>
 
-            {/* Time Mode */}
             <TabsContent value="time">
               <Card className="border border-border shadow-lg">
                 <CardContent>
@@ -166,7 +159,6 @@ const LeaderboardPage = () => {
               </Card>
             </TabsContent>
 
-            {/* Words Mode */}
             <TabsContent value="words">
               <Card className="border border-border shadow-lg">
                 <CardContent>
@@ -205,7 +197,6 @@ const LeaderboardPage = () => {
           </Tabs>
         </TabsContent>
 
-        {/* Racing Leaderboard */}
         <TabsContent value="racing" className="space-y-4 mt-6">
           <Card className="border border-border shadow-lg">
             <CardContent>

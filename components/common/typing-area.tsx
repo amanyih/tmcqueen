@@ -23,15 +23,12 @@ export default function TypingArea({
 
   return (
     <div className="flex flex-col items-center justify-center gap-6 p-6 h-full my-auto">
-      {/* Header with Timer and Progress Bar */}
       <div className="w-full max-w-4xl flex justify-between items-center ">
         <TimeCountDown />
         <ProgressBar value={((subMode - countdown) / subMode) * 100} />
       </div>
 
-      {/* Typing Area */}
       <div className="relative w-full max-w-7xl flex flex-col items-center justify-center ">
-        {/* Words Section */}
         <p
           className="font-mono text-lg md:text-3xl leading-snug md:leading-normal tracking-wide text-foreground text-center select-none"
           style={{
@@ -50,7 +47,6 @@ export default function TypingArea({
           ))}
         </p>
 
-        {/* Restart Button */}
         <div className="mt-6">
           <Button variant="ghost" size="icon" onClick={restart}>
             <RotateCcw className="w-6 h-6 text-foreground" />

@@ -7,7 +7,6 @@ export const About = () => {
     <section id="about" className="container py-24 sm:py-32">
       <Card className="bg-muted/50 border rounded-lg shadow-lg overflow-hidden">
         <CardContent className="px-6 py-12 flex flex-col-reverse md:flex-row gap-8 md:gap-12">
-          {/* Image Section */}
           <div className="flex justify-center md:justify-start">
             <Image
               src={"/images/95.png"}
@@ -19,7 +18,6 @@ export const About = () => {
             />
           </div>
 
-          {/* Content Section */}
           <div className="flex flex-col justify-between">
             <div className="space-y-6">
               <h2 className="text-2xl sm:text-3xl font-bold text-primary">
@@ -32,7 +30,6 @@ export const About = () => {
                 climbing the global leaderboard.
               </p>
 
-              {/* Icon Section */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
                 <div className="flex items-center gap-4">
                   <Keyboard className="w-8 h-8 text-primary" />

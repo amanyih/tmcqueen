@@ -19,15 +19,12 @@ import { LeaderboardCard } from "./LeaderBoardCard";
 export const HeroCards = () => {
   return (
     <div className="hidden lg:flex flex-row flex-wrap gap-8 relative w-[700px] h-[500px]">
-      {/* Testimonial */}
       <Card className="absolute w-[340px] -top-[15px] drop-shadow-xl shadow-black/10 dark:shadow-white/10">
         <CardHeader className="space-y-1 flex md:flex-row justify-start items-start gap-4">
-          {/* Icon or Indicator */}
           <div className="mt-1 bg-primary/20 p-2 rounded-2xl">
             <span className="text-primary font-semibold text-lg">🌐</span>
           </div>
 
-          {/* Online Users Content */}
           <div>
             <CardTitle className="text-lg font-bold text-foreground">
               800 Online Users
@@ -39,7 +36,6 @@ export const HeroCards = () => {
         </CardHeader>
       </Card>
 
-      {/* Team */}
       <Card className="absolute right-[20px] top-4 w-80 flex flex-col justify-center items-center drop-shadow-xl shadow-black/10 dark:shadow-white/10">
         <CardHeader className="mt-8 flex justify-center items-center ">
           <div className="absolute grayscale-[0%] -top-[150px] rounded-full w-24 h-24 aspect-square object-cover">
@@ -61,7 +57,6 @@ export const HeroCards = () => {
         </CardContent>
       </Card>
 
-      {/* Pricing */}
       <Card className="absolute top-[150px] left-[50px] w-72 drop-shadow-xl shadow-black/10 dark:shadow-white/10">
         <CardHeader>
           <CardTitle className="flex items-center justify-between">
@@ -114,7 +109,6 @@ export const HeroCards = () => {
         </CardFooter>
       </Card>
 
-      {/* Service */}
       <LeaderboardCard />
     </div>
   );
@@ -181,12 +175,10 @@ export const Hero = () => {
         </div>
       </div>
 
-      {/* Hero cards sections */}
       <div className="z-10">
         <HeroCards />
       </div>
 
-      {/* Shadow effect */}
       <div className="animated-glow"></div>
     </section>
   );

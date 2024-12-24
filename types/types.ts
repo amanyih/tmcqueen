@@ -1,7 +1,7 @@
 export type ControlPanelOptionType = {
   label: string;
   value: string;
-  icon?: React.ReactNode; // Make icon optional
+  icon?: React.ReactNode;
 };
 
 export interface User {

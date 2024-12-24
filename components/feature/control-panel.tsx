@@ -44,7 +44,6 @@ export default function ControlPanel(): JSX.Element {
 
   return (
     <div className="flex items-center justify-center gap-3 p-3 rounded-full bg-white dark:bg-gray-900 shadow-md border border-gray-300 dark:border-gray-700 scale-[0.8]">
-      {/* Extra Characters */}
       <ControlPanelOption
         type="multiple"
         items={extraCharacters}
@@ -64,7 +63,6 @@ export default function ControlPanel(): JSX.Element {
         className="bg-gray-300 dark:bg-gray-700 h-6"
       />
 
-      {/* Mode Selection */}
       <ControlPanelOption
         type="single"
         items={modes}
@@ -81,7 +79,6 @@ export default function ControlPanel(): JSX.Element {
         className="bg-gray-300 dark:bg-gray-700 h-6"
       />
 
-      {/* SubMode Selection */}
       <ControlPanelOption
         type="single"
         items={mode === "time" ? timeOptions : textOptions}
@@ -92,7 +89,6 @@ export default function ControlPanel(): JSX.Element {
         value={subMode.toString()}
       />
 
-      {/* Language Picker */}
       <LanguagePicker value={language} setValue={setLanguage} />
     </div>
   );

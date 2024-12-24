@@ -37,7 +37,6 @@ const featureList: FeatureProps[] = [
 export const Services = () => {
   return (
     <section id="features" className="container py-24 sm:py-32">
-      {/* Title */}
       <div className="text-center mb-12">
         <h2 className="text-3xl md:text-4xl font-bold leading-tight">
           Discover Our{" "}
@@ -51,9 +50,7 @@ export const Services = () => {
         </p>
       </div>
 
-      {/* Features Grid */}
       <div className="grid lg:grid-cols-2 gap-8 place-items-center">
-        {/* Features List */}
         <div className="flex flex-col gap-8">
           {featureList.map(({ icon, title, description }: FeatureProps) => (
             <Card
@@ -73,7 +70,6 @@ export const Services = () => {
           ))}
         </div>
 
-        {/* Image */}
         <img
           src={"/images/95.png"}
           className="w-[300px] md:w-[500px] lg:w-[600px] object-contain drop-shadow-lg"

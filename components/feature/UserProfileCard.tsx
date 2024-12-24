@@ -20,15 +20,12 @@ export function UserProfileCard() {
   return (
     <Card className="border border-border shadow-md rounded-lg">
       <CardContent className="p-6 space-y-6">
-        {/* Profile Header */}
         <div className="flex items-center gap-6">
-          {/* Avatar */}
           <Avatar className="w-24 h-24">
             <AvatarImage src={user.avatar} alt={user.name} />
             <AvatarFallback>{user.name.charAt(0)}</AvatarFallback>
           </Avatar>
 
-          {/* Name, Rank, and Rating */}
           <div className="flex flex-col justify-center space-y-2">
             <div className="flex items-center gap-8">
               <h1 className="text-3xl font-bold text-primary">{user.name}</h1>
@@ -46,10 +43,8 @@ export function UserProfileCard() {
           </div>
         </div>
 
-        {/* Separator */}
         <Separator />
 
-        {/* Achievements */}
         <div>
           <h2 className="text-sm font-semibold text-secondary mb-2">
             Achievements
@@ -67,10 +62,8 @@ export function UserProfileCard() {
           </div>
         </div>
 
-        {/* Separator */}
         <Separator />
 
-        {/* Additional Info */}
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4">
           <div className="text-sm text-muted-foreground flex items-center gap-2">
             <Calendar className="w-4 h-4 text-muted-foreground" />

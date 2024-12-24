@@ -59,7 +59,6 @@ export const LeaderboardCard = () => {
                 )}
               </div>
 
-              {/* User Info */}
               <span className="mt-2 font-semibold text-sm text-center text-foreground">
                 {user.name}
               </span>
@@ -70,7 +69,6 @@ export const LeaderboardCard = () => {
           ))}
         </div>
 
-        {/* Rankings List */}
         <div className="space-y-3">
           {leaderboardData.map((user) => (
             <div

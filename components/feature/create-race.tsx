@@ -58,7 +58,6 @@ const CreateRace = () => {
 
   const handleSubmit = () => {
     console.log("Form Payload:", formData);
-    // Call API endpoint here
   };
 
   return (
@@ -81,7 +80,6 @@ const CreateRace = () => {
           </DialogDescription>
         </DialogHeader>
 
-        {/* Form Fields */}
         <div className="space-y-4 mt-4">
           {/* Name */}
           <div className="flex flex-col gap-2">
@@ -94,7 +92,6 @@ const CreateRace = () => {
             />
           </div>
 
-          {/* Description */}
           <div className="flex flex-col gap-2">
             <Label>Description</Label>
             <Input
@@ -105,7 +102,6 @@ const CreateRace = () => {
             />
           </div>
 
-          {/* SubMode */}
           <div className="flex flex-col gap-2">
             <Label>Sub Mode</Label>
             <select
@@ -122,42 +118,6 @@ const CreateRace = () => {
             </select>
           </div>
 
-          {/* Date Picker for Start Time */}
-          {/* <div className="flex flex-col gap-2">
-            <Label>Start Time</Label>
-            <Popover>
-              <PopoverTrigger asChild>
-                <Button
-                  variant="outline"
-                  className={`w-full justify-start text-left font-normal ${
-                    !formData.startTime && "text-muted-foreground"
-                  }`}
-                >
-                  <CalendarIcon className="mr-2 h-4 w-4" />
-                  {formData.startTime ? (
-                    format(formData.startTime, "PPP")
-                  ) : (
-                    <span>Pick a date</span>
-                  )}
-                </Button>
-              </PopoverTrigger>
-              <PopoverContent className="w-auto p-0" align="start">
-                <Calendar
-                  mode="single"
-                  selected={formData.startTime || undefined}
-                  onSelect={(date) =>
-                    setFormData((prev) => ({
-                      ...prev,
-                      startTime: date || null,
-                    }))
-                  }
-                  initialFocus
-                />
-              </PopoverContent>
-            </Popover>
-          </div> */}
-
-          {/* Language */}
           <div className="flex flex-col gap-2">
             <Label>Language</Label>
             <Input
@@ -168,7 +128,6 @@ const CreateRace = () => {
             />
           </div>
 
-          {/* Checkboxes */}
           <div className="grid grid-cols-2 gap-4">
             <div className="flex items-center space-x-2">
               <Checkbox
@@ -196,7 +155,6 @@ const CreateRace = () => {
             </div>
           </div>
 
-          {/* Invite Users */}
           <div className="flex flex-col gap-2">
             <Label>Invite Friends</Label>
             <Invite />

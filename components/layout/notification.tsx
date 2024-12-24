@@ -42,14 +42,13 @@ const Notification = () => {
             className="cursor-pointer text-primary hover:text-primary/80 transition duration-200 ease-in-out"
             size={24}
           />
-          {/* Notification Badge */}
+
           <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-destructive text-xs font-bold text-white">
             {notifications.length}
           </span>
         </Button>
       </SheetTrigger>
 
-      {/* Notification Content */}
       <SheetContent className="w-[400px] sm:w-[450px]">
         <SheetHeader>
           <SheetTitle className="text-2xl font-bold text-primary">
@@ -96,7 +95,6 @@ const Notification = () => {
           )}
         </div>
 
-        {/* Separator */}
         <Separator className="my-4" />
 
         <div className="flex justify-end">
