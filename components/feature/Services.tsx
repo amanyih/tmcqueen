@@ -1,5 +1,6 @@
 import { Card, CardDescription, CardHeader, CardTitle } from "../ui/card";
 import { Keyboard, Users, BarChart, Trophy } from "lucide-react";
+import Image from "next/image";
 
 interface FeatureProps {
   title: string;
@@ -70,7 +71,7 @@ export const Services = () => {
           ))}
         </div>
 
-        <img
+        <Image
           src={"/images/95.png"}
           className="w-[300px] md:w-[500px] lg:w-[600px] object-contain drop-shadow-lg"
           alt="Core Features"
