@@ -1,20 +1,12 @@
 "use client";
 import {
   Dialog,
-  DialogTrigger,
-  DialogClose,
   DialogContent,
   DialogDescription,
   DialogFooter,
   DialogHeader,
-  DialogOverlay,
-  DialogPortal,
   DialogTitle,
 } from "../ui/dialog";
-
-import { Input } from "../ui/input";
-import { Label } from "../ui/label";
-import { Button } from "../ui/button";
 import { useUIStore } from "@/store";
 
 export function Modal() {
@@ -28,15 +20,24 @@ export function Modal() {
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
           <DialogTitle>{modal.title}</DialogTitle>
-          <DialogDescription>
-            {"You have completed the typing practice."}
-          </DialogDescription>
+          <DialogDescription>{}</DialogDescription>
         </DialogHeader>
         <div>{modal.content}</div>
         <DialogFooter>
-          <Button onClick={() => (modal.isOpen ? closeModal() : null)}>
+          <div
+            className="
+              bg-secondary
+              py-2
+              px-4
+              rounded-md
+              text-white
+              hover:bg-secondary/90
+              cursor-pointer
+            "
+            onClick={() => (modal.isOpen ? closeModal() : null)}
+          >
             Close
-          </Button>
+          </div>
         </DialogFooter>
       </DialogContent>
     </Dialog>

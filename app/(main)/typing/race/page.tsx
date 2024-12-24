@@ -23,7 +23,9 @@ const RacePage = () => {
             <Button
               variant="secondary"
               size="lg"
-              className="hover:bg-primary/10 transition-colors"
+              className="hover:bg-primary/10 transition-colors 
+              text-white
+              "
             >
               Practice
             </Button>

@@ -2,7 +2,7 @@ import ControlPanel from "./control-panel";
 import { ProgressBar } from "./progress-bar";
 import Gauge from "./Gauge";
 import { Hero } from "./Hero";
-import { Sponsors } from "./Sponsors";
+import { Statistics } from "./Sponsors";
 import { About } from "./About";
 import { HowItWorks } from "./HowItWorks";
 import { Features } from "./Features";
@@ -20,13 +20,15 @@ import PersonalBests from "./PersonalBest";
 import RecentRaces from "./RecentRaces";
 import RecentResults from "./RecentResults";
 import WPMProgressionChart from "./WPMProgressionChart";
+import { LiveChat } from "./LiveChat";
+import { RacingResult } from "./RacingResult";
 
 export {
   ControlPanel,
   ProgressBar,
   Gauge,
   Hero,
-  Sponsors,
+  Statistics,
   About,
   HowItWorks,
   Features,
@@ -44,4 +46,6 @@ export {
   RecentRaces,
   RecentResults,
   WPMProgressionChart,
+  LiveChat,
+  RacingResult,
 };

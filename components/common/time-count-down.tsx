@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import { Timer } from "lucide-react";
 import { usePracticeStore, useUIStore } from "@/store";
 
 export function TimeCountDown({}: {}) {
@@ -57,8 +58,10 @@ export function TimeCountDown({}: {}) {
 
   return (
     <>
-      <div className="inline-flex text-center p-4 self-end text-3xl">
-        <span>{countdownState}</span>
+      <div className="flex items-center justify-center  rounded-lg  p-4 w-32 h-16">
+        <span className="text-3xl font-bold text-foreground">
+          {countdownState}
+        </span>
       </div>
     </>
   );

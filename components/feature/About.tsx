@@ -1,51 +1,6 @@
 import Image from "next/image";
-import { Card, CardHeader, CardContent } from "@/components/ui/card";
-
-export const Statistics = () => {
-  interface StatsProps {
-    quantity: string;
-    description: string;
-  }
-
-  const stats: StatsProps[] = [
-    {
-      quantity: "2.7K+",
-      description: "Active Racers",
-    },
-    {
-      quantity: "1.8K+",
-      description: "Typing Challenges Completed",
-    },
-    {
-      quantity: "500K+",
-      description: "Words Typed",
-    },
-    {
-      quantity: "120+",
-      description: "Global Leaderboard Top Scorers",
-    },
-  ];
-
-  return (
-    <section id="statistics" className="mt-8">
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-        {stats.map(({ quantity, description }: StatsProps) => (
-          <Card
-            key={description}
-            className="shadow-md hover:shadow-lg transition-all duration-300"
-          >
-            <CardContent className="text-center py-6 space-y-2">
-              <h2 className="text-3xl sm:text-4xl font-bold text-primary">
-                {quantity}
-              </h2>
-              <p className="text-lg text-muted-foreground">{description}</p>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
-    </section>
-  );
-};
+import { Card, CardContent } from "@/components/ui/card";
+import { Keyboard, Globe, Users } from "lucide-react";
 
 export const About = () => {
   return (
@@ -66,18 +21,39 @@ export const About = () => {
 
           {/* Content Section */}
           <div className="flex flex-col justify-between">
-            <div>
-              <p className="text-lg text-muted-foreground mt-6 leading-relaxed">
-                Typing McQueen is the ultimate typing platform for speed and
-                accuracy enthusiasts. Whether you're looking to **practice**,
-                challenge friends in **real-time races**, or top the **global
-                leaderboard**, Typing McQueen helps you achieve your typing
-                goals while having fun. 🚀
+            <div className="space-y-6">
+              <h2 className="text-2xl sm:text-3xl font-bold text-primary">
+                About Typing McQueen
+              </h2>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Typing McQueen is the premier platform for improving typing
+                speed and accuracy. With real-time challenges, engaging typing
+                races, and a vibrant community, you can hone your skills while
+                climbing the global leaderboard.
               </p>
-            </div>
 
-            {/* Statistics Section */}
-            <Statistics />
+              {/* Icon Section */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
+                <div className="flex items-center gap-4">
+                  <Keyboard className="w-8 h-8 text-primary" />
+                  <span className="text-lg text-muted-foreground">
+                    Practice Typing
+                  </span>
+                </div>
+                <div className="flex items-center gap-4">
+                  <Globe className="w-8 h-8 text-primary" />
+                  <span className="text-lg text-muted-foreground">
+                    Global Leaderboard
+                  </span>
+                </div>
+                <div className="flex items-center gap-4">
+                  <Users className="w-8 h-8 text-primary" />
+                  <span className="text-lg text-muted-foreground">
+                    Community Races
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
         </CardContent>
       </Card>

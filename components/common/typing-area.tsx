@@ -1,9 +1,12 @@
 "use client";
+
 import { RotateCcw } from "lucide-react";
 import { ProgressBar } from "../feature";
 import { TimeCountDown } from "./time-count-down";
 import { usePracticeStore } from "@/store";
 import { WordType } from "@/types";
+import { Button } from "../ui";
+import { TypingWord } from "./TypingWords";
 
 type TypingAreaProps = {
   words: WordType[];
@@ -19,64 +22,41 @@ export default function TypingArea({
   const { subMode, countdown, restart } = usePracticeStore();
 
   return (
-    <div className="flex flex-col items-center justify-center gap-2 p-6">
-      {/* Timer and Progress */}
-      <div className="w-full max-w-4xl flex justify-between items-center">
+    <div className="flex flex-col items-center justify-center gap-6 p-6 h-full my-auto">
+      {/* Header with Timer and Progress Bar */}
+      <div className="w-full max-w-4xl flex justify-between items-center ">
         <TimeCountDown />
         <ProgressBar value={((subMode - countdown) / subMode) * 100} />
       </div>
 
-      {/* Typing Text */}
-      <div className="relative w-full max-w-4xl bg-gray-100 dark:bg-gray-800 rounded-lg p-8 shadow-lg">
+      {/* Typing Area */}
+      <div className="relative w-full max-w-7xl flex flex-col items-center justify-center ">
+        {/* Words Section */}
         <p
-          className="font-mono text-4xl leading-relaxed tracking-wide text-gray-800 dark:text-gray-200 text-center select-none"
-          style={{ wordSpacing: "0.3em" }}
+          className="font-mono text-lg md:text-3xl leading-snug md:leading-normal tracking-wide text-foreground text-center select-none"
+          style={{
+            wordSpacing: "0.25em",
+            lineHeight: "1.6",
+          }}
         >
           {words.map((word, wordIndex) => (
-            <span key={wordIndex} className="inline-block mr-4">
-              {word.letters.map((letter, letterIndex) => {
-                const isCaretPosition =
-                  wordIndex === currentWordIndex &&
-                  letterIndex === currentLetterIndex;
-
-                return (
-                  <span
-                    key={letterIndex}
-                    className={`${
-                      letter.status === "correct"
-                        ? "text-green-500"
-                        : letter.status === "incorrect"
-                        ? "text-red-500"
-                        : "text-gray-500"
-                    }`}
-                  >
-                    {isCaretPosition ? (
-                      <span className="inline-block bg-orange-500 w-[2px] h-8 animate-blink"></span>
-                    ) : (
-                      letter.char
-                    )}
-                  </span>
-                );
-              })}
-            </span>
+            <TypingWord
+              key={wordIndex}
+              word={word}
+              wordIndex={wordIndex}
+              currentWordIndex={currentWordIndex}
+              currentLetterIndex={currentLetterIndex}
+            />
           ))}
         </p>
 
-        {/* Refresh Button */}
-        <button
-          className="absolute bottom-4 right-4 p-2 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition shadow-md"
-          onClick={restart}
-        >
-          <RotateCcw
-            size={24}
-            strokeWidth={2}
-            className="text-gray-800 dark:text-gray-200"
-          />
-        </button>
+        {/* Restart Button */}
+        <div className="mt-6">
+          <Button variant="ghost" size="icon" onClick={restart}>
+            <RotateCcw className="w-6 h-6 text-foreground" />
+          </Button>
+        </div>
       </div>
-
-      {/* Spacer for Footer */}
-      <div className="h-32"></div>
     </div>
   );
 }

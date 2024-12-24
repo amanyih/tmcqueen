@@ -27,7 +27,7 @@ const user = {
 
 export function Navbar() {
   return (
-    <nav className="bg-background border-b border-border shadow-md">
+    <nav className="bg-background border-b border-border ">
       <div className="container mx-auto flex justify-between items-center py-4">
         {/* Left Section: Logo */}
         <Logo />
