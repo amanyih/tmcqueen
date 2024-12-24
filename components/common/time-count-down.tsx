@@ -26,7 +26,6 @@ export function TimeCountDown({}: {}) {
 
   useEffect(() => {
     if (isTyping && mode === "time") {
-      console.log("coutingdown ");
       const interval = setInterval(() => {
         setCountdownState((prev) => {
           if (prev === 0) {
@@ -35,7 +34,6 @@ export function TimeCountDown({}: {}) {
           }
           return prev - 1;
         });
-        console.log("coutingdown inside");
         decrementCountdown();
       }, 1000);
       return () => clearInterval(interval);

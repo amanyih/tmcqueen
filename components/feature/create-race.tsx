@@ -56,9 +56,7 @@ const CreateRace = () => {
     setFormData((prev) => ({ ...prev, [field]: !prev[field] }));
   };
 
-  const handleSubmit = () => {
-    console.log("Form Payload:", formData);
-  };
+  const handleSubmit = () => {};
 
   return (
     <Dialog>

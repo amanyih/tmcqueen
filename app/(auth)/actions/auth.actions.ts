@@ -57,7 +57,6 @@ export async function signup(prevSate: any, formData: FormData) {
   const result = AuthSchema.safeParse(Object.fromEntries(formData));
 
   if (!result.success) {
-    console.log("errors", result.error.flatten().fieldErrors);
     return {
       errors: result.error.flatten().fieldErrors,
       password: [],
@@ -67,7 +66,6 @@ export async function signup(prevSate: any, formData: FormData) {
   try {
     const res = await post<SignupDto, any>("/auth/signup", result.data);
   } catch (error: any) {
-    console.log("found error", error.message);
     if (error instanceof ApiError) {
       return {
         errors: {

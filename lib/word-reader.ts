@@ -15,11 +15,9 @@ async function readJson(filename: string) {
     }
 
     const jsonData = await response.json();
-    console.log("fetching words", filename, "error");
 
     return jsonData;
   } catch (err) {
-    console.log("fetching", err);
     return {
       words: [],
     };
@@ -68,8 +66,6 @@ export async function getWords(req: WordsRequest): Promise<string[]> {
   if (req.numbers) {
     random_words = insertNumbersIntoWords(random_words, req.count / 5);
   }
-
-  console.log("fetching getting words", random_words);
 
   return random_words;
 }

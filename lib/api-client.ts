@@ -70,7 +70,6 @@ async function del<T>(url: string, config?: AxiosRequestConfig): Promise<T> {
 
 function createApiError(error: any): ApiError {
   if (axios.isAxiosError(error)) {
-    console.log("axios error", error);
     const data = error.response?.data;
     const statusCode = data.statusCode ?? 500;
     const message =

@@ -10,8 +10,6 @@ export default async function middleware(req: NextRequest) {
 
   const path = req.nextUrl.pathname;
 
-  console.log("middleware", path);
-
   //TODO: uncomment this
   // if (!cookie && protectedRoutes.includes(path)) {
   //   return NextResponse.redirect(new URL("/login", req.nextUrl));

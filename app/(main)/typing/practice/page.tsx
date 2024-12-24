@@ -66,8 +66,6 @@ export default function Practice() {
       numbers: numbers,
       punctuation,
     });
-
-    console.log("regen change in", subMode, language, numbers, punctuation);
   }, [subMode, language, numbers, punctuation]);
 
   return (

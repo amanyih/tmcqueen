@@ -27,7 +27,5 @@ export function parseText(text: string[]): WordType[] {
     words.pop();
   }
 
-  console.log("fetching and parsing", words);
-
   return words;
 }

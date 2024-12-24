@@ -11,8 +11,6 @@ function useActionStateFn(actionFunction: Function) {
       setIsSuccess(false);
       setState(null);
 
-      console.log("something");
-
       const result = await actionFunction(...args);
       if (result.errors) {
         setIsSuccess(false);
